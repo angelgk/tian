@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#dv{
+		width: 50px;height: 50px;background-color: red;
+		border-radius: 50%;margin: 200px auto;position: relative;top: 0;
+	}
+	#dv2{
+		width: 50px;height: 50px;background-color: yellow;
+		border-radius: 50%;margin: -250px 550px;position: relative;top: 0;
+	}
+	#dv3{
+		width: 50px;height: 50px;background-color: black;
+		border-radius: 50%;margin: 200px 500px;position: relative;top: 0;
+	}
+	#dv4{
+		width: 50px;height: 50px;background-color: green;
+		border-radius: 50%;margin: -250px 600px;position: relative;top: 0;
+	}
+</style>
+<body>
+	<input type="button" value="开始" id="bo">
+	<div id="dv"></div>
+	<div id="dv2"></div>
+	<div id="dv3"></div>
+	<div id="dv4"></div>
+
+</body>
+<script type="text/javascript">
+	var dv=document.getElementById("dv");
+	var dv2=document.getElementById("dv2");
+	var dv3=document.getElementById("dv3");
+	var dv4=document.getElementById("dv4");
+
+	var bo=true;
+	var begin=document.getElementById("bo");
+	var a=0,b;
+
+	begin.onclick=function(){
+
+		if (bo) {
+			t=setInterval(move,30);
+			begin.value="暂停";
+			bo=false;
+		}
+		else{
+			clearInterval(t);
+			begin.value="开始";
+			bo=true;
+		}
+	}
+	function move(){
+		a+=3;
+		b=Math.sin(a*Math.PI/180)*200;
+		console.log(b);
+		dv.style.top=-b+'px';
+		dv.style.left=b+'px';
+
+		dv2.style.top=b+'px';
+		dv4.style.left=b+'px';
+		dv3.style.left=-b+'px';
+
+
+	}
+			
+	
+</script>
+</html>
